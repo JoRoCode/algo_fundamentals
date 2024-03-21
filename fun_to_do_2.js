@@ -76,19 +76,57 @@ console.log(greaterTwo([1]));
 // Given two numbers, return array of length num1 with each value num2. Print "Jinx!" if they are same.
 
 
+function lengthValue(num1,num2){
+    let arr = [];
+    arr.length = num1;
+    for(i = 0; i < arr.length; i++){
+        arr[i] = num2;
+    }
+    return arr;
+}
+
+console.log(lengthValue(6,23));
+console.log(lengthValue(3,[3,5,1,8,9,true]));
+console.log(lengthValue(8,false));
 
 // Fit the First Value
 // Your function should accept an array. If value at [0] is greater than array’s length, print "Too big!"; if value at [0] is less than array’s length, print "Too small!"; otherwise print "Just right!".
 
+function fitTheFirst(arr){
+    if(arr[0] > arr.length){
+        console.log("Too big!");
+    }
+    else if(arr[0] < arr.length){
+        console.log("Too small!");
+    }
+    else{
+        console.log("Just right!");
+    }
+}
 
+fitTheFirst([12,4,9,6,8,8]);
+fitTheFirst([2,4,9,6,8,8]);
+fitTheFirst([6,4,9,6,8,8]);
 
 // Fahrenheit to Celsius
 // Kelvin wants to convert between temperature scales. Create fahrenheitToCelsius(fDegrees) that accepts a number of degrees in Fahrenheit and returns the equivalent temperature as expressed in Celsius degrees. For review, Fahrenheit = (9/5 * Celsius) + 32.
 
+function fahrenheitToCelsius(fDegrees){
+    let cDegrees=(fDegrees - 32) *5/9;
+    return cDegrees
+}
+
+console.log(fahrenheitToCelsius(32));
 
 
 
 // Celsius to Fahrenheit
 // Create celsiusToFahrenheit(cDegrees) that accepts number of degrees Celsius, and returns the equivalent temperature expressed in Fahrenheit degrees.
 
-// (Optional): Do Fahrenheit and Celsius values equate at a certain number? The scientific calculation can be complex, so for this challenge just try a series of Celsius integer values starting at 200, going downward (descending), checking whether it is equal to the corresponding Fahrenheit value.
+function celsiusToFahrenheit(cDegrees){
+    let fDegrees = (9/5 * cDegrees) + 32;
+    return fDegrees
+}
+
+console.log(celsiusToFahrenheit(50));
+
