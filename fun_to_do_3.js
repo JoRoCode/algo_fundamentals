@@ -143,27 +143,6 @@ console.log(addSeven([1,2,3,4,5,6,7,8,9,10]));
 // Given array, write a function to reverse values, in-place. Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3].
 
 
-// function reverseArray(arr){
-//     for(i = 0; i < arr.length/2; i++){
-//         for(j = arr.length-1; j > arr.length/2; j--){
-//             var temp = arr[i];
-//             arr[i] = arr[j];
-//             arr[j] = temp;
-//         }
-//     }
-//     return arr;
-// }
-// function reverseArray(arr){
-//     for(var i = 0; i < j; i++){
-//         for(var j = arr.length-1; j > i; j--){
-//             var temp = arr[i];
-//             arr[i] = arr[j];
-//             arr[j] = temp;
-//         }
-//     }
-//     return arr;
-// }
-
 function reverseArray(arr){
     let i = 0;
     let j = arr.length-1;
@@ -183,18 +162,69 @@ console.log(reverseArray([1,2,3,4,5,6,7,8,9,10,11]));
 // Outlook: Negative
 // Given an array, create and return a new one containing all the values of the provided array, made negative (not simply multiplied by -1). Given [1,-3,5], return [-1,-3,-5].
 
- 
+function outlookNegative(arr){
+    let newArr = [];
+    for(i = 0; i < arr.length; i++){
+        if(arr[i] > 0){
+        arr[i] = -arr[i];
+        }
+        newArr.push(arr[i]);
+    }
+    return newArr;
+}
+
+console.log(outlookNegative([1,-3,5]));
+console.log(outlookNegative([1,-3,5,6,-9,-77,-23,1,6,2,7,-40,0]));
+console.log(outlookNegative([-1,-2,-3,-4,-5,-6,-7,-8,-9,-10]));
+console.log(outlookNegative([1,2,3,4,5,6,7,8,9,10]));
 
 // Always Hungry
 // Create a function that accepts an array, and prints "yummy" each time one of the values is equal to "food". If no array elements are "food", then print "I'm hungry" once.
 
- 
+function alwaysHungry(arr){
+    for(i = 0; i < arr.length; i++){
+        if(arr[i]=="food"){
+            console.log("yummy");
+        }
+    }
+    if(!arr.includes("food")){
+        console.log("I'm hungry.");
+    }
+}
+
+alwaysHungry(["pig", "cow", "food", "horse", "dog"]);
+alwaysHungry(["pig", "cow", "horse", "dog"]);
 
 // Swap Toward the Center
 // Given array, swap first and last, third and third-tolast, etc. Input[true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true].  Change [1,2,3,4,5,6] to [6,2,4,3,5,1].
 
+function swapTowardTheCenter(arr){
+    let temp = 0;
+    let l = arr.length - 1;
+    for(var i = 0; i < arr.length; i+=2){
+        if(i < l){
+            temp = arr[i];
+            arr[i] = arr[l];
+            arr[l] = temp;
+            l -=2;
+        }
+    }
+    return arr;
+}
 
-
+console.log(swapTowardTheCenter([true,42,"Ada",2,"pizza"]));
+console.log(swapTowardTheCenter([1,2,3,4,5,6]));
 
 // Scale the Array
 // Given array arr and number num, multiply each arr value by num, and return the changed arr.
+
+function scaleTheArray(arr,num){
+    for(i = 0; i < arr.length; i++){
+        arr[i] = arr[i]*num;
+    }
+    return arr;
+}
+
+console.log(scaleTheArray([1,2,3,4,5,6,7,8,9,10],2));
+console.log(scaleTheArray([1,2,3,4,5,6,7,8,9,10],5));
+console.log(scaleTheArray([1,2,3,4,5,6,7,8,9,10],10));
